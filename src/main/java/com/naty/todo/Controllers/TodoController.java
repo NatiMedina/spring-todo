@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-public class UsuarioController {
+public class TodoController {
 
     private static List<Todo> todos = new ArrayList<>();
 
