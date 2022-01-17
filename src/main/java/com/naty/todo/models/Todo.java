@@ -1,4 +1,4 @@
-package com.naty.todo.Models;
+package com.naty.todo.models;
 
 import java.util.Date;
 

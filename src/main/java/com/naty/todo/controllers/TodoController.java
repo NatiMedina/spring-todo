@@ -1,6 +1,6 @@
-package com.naty.todo.Controllers;
+package com.naty.todo.controllers;
 
-import com.naty.todo.Models.Todo;
+import com.naty.todo.models.Todo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
