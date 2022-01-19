@@ -12,4 +12,7 @@ public interface UsuarioDao {
 
     void eliminarUsuario(Long id);
 
+    Usuario modificarUsuario(Long id, Usuario usuario);
+
+
 }

@@ -30,4 +30,9 @@ public class UsuarioController {
             usuarioDao.eliminarUsuario(id);
         }
     }
+
+    @RequestMapping(value = "api/usuario/{id}", method = RequestMethod.PATCH)
+    public Usuario modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+        return usuarioDao.modificarUsuario(id, usuario);
+    }
 }
