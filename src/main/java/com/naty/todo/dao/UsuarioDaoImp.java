@@ -28,6 +28,14 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
+    public void eliminarUsuario(Long id) {
+        Usuario usuario = entityManager.find(Usuario.class, id);
+        if (usuario != null) {
+            entityManager.remove(usuario);
+        }
+    }
+
+    @Override
     public Usuario modificarUsuario(Long id, Usuario usuario) {
         Usuario oldUsuario = entityManager.find(Usuario.class, id);
         if (oldUsuario != null && usuario != null) {
@@ -46,5 +54,4 @@ public class UsuarioDaoImp implements UsuarioDao {
         }
         return oldUsuario;
     }
-
 }

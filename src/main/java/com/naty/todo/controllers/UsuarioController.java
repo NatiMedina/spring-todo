@@ -24,6 +24,13 @@ public class UsuarioController {
         return usuarioDao.crearUsuario(usuario);
     }
 
+    @RequestMapping(value = "api/usuario/{id}", method = RequestMethod.DELETE)
+    public void eliminarUsuario(@PathVariable Long id) {
+        if (id != null) {
+            usuarioDao.eliminarUsuario(id);
+        }
+    }
+
     @RequestMapping(value = "api/usuario/{id}", method = RequestMethod.PATCH)
     public Usuario modificarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         return usuarioDao.modificarUsuario(id, usuario);
