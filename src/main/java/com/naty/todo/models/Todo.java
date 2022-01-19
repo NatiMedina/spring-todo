@@ -1,100 +1,42 @@
 package com.naty.todo.models;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "todo")
+@ToString
+@EqualsAndHashCode
+@Getter
+@Setter
 public class Todo {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "titulo")
     private String titulo;
+    @Column(name = "estado")
     private String estado;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "creacion")
     private Date creacion;
+    @Column(name = "vencimiento")
     private Date vencimiento;
+    @Column(name = "modificacion")
     private Date modificacion;
+    @Column(name = "id_autor")
     private Long idAutor;
+    @Column(name = "prioridad")
     private String prioridad;
+    @Column(name = "id_panel")
     private Long idPanel;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Date getCreacion() {
-        return creacion;
-    }
-
-    public void setCreacion(Date creacion) {
-        this.creacion = creacion;
-    }
-
-    public Date getVencimiento() {
-        return vencimiento;
-    }
-
-    public void setVencimiento(Date vencimiento) {
-        this.vencimiento = vencimiento;
-    }
-
-    public Date getModificacion() {
-        return modificacion;
-    }
-
-    public void setModificacion(Date modificacion) {
-        this.modificacion = modificacion;
-    }
-
-    public Long getIdAutor() {
-        return idAutor;
-    }
-
-    public void setIdAutor(Long idAutor) {
-        this.idAutor = idAutor;
-    }
-
-    public String getPrioridad() {
-        return prioridad;
-    }
-
-    public void setPrioridad(String prioridad) {
-        this.prioridad = prioridad;
-    }
-
-    public Long getIdPanel() {
-        return idPanel;
-    }
-
-    public void setIdPanel(Long idPanel) {
-        this.idPanel = idPanel;
-    }
-
-
 
 }
