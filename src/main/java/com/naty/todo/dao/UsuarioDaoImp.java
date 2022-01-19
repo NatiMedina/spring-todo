@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -28,4 +27,11 @@ public class UsuarioDaoImp implements UsuarioDao {
         return usuario;
     }
 
+    @Override
+    public void eliminarUsuario(Long id) {
+        Usuario usuario = entityManager.find(Usuario.class, id);
+        if (usuario != null) {
+            entityManager.remove(usuario);
+        }
+    }
 }

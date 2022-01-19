@@ -10,4 +10,6 @@ public interface UsuarioDao {
 
     Usuario crearUsuario(Usuario usuario);
 
+    void eliminarUsuario(Long id);
+
 }
