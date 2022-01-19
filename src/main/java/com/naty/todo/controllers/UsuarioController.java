@@ -3,10 +3,7 @@ package com.naty.todo.controllers;
 import com.naty.todo.dao.UsuarioDao;
 import com.naty.todo.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,12 @@ public class UsuarioController {
     @RequestMapping(value = "api/usuario", method = RequestMethod.POST)
     public Usuario createUsuario(@RequestBody Usuario usuario) {
         return usuarioDao.crearUsuario(usuario);
+    }
+
+    @RequestMapping(value = "api/usuario/{id}", method = RequestMethod.DELETE)
+    public void eliminarUsuario(@PathVariable Long id) {
+        if (id != null) {
+            usuarioDao.eliminarUsuario(id);
+        }
     }
 }
