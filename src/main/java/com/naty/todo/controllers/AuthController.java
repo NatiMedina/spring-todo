@@ -17,7 +17,11 @@ public class AuthController {
     private UsuarioDao usuarioDao;
 
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
-    public void login(@RequestBody Usuario usuario) {
-        usuarioDao.verificarCredenciales(usuario);
+    public String login(@RequestBody Usuario usuario) {
+        if (usuarioDao.verificarCredenciales(usuario)) {
+            return "OK";
+        }
+        return "FAIL";
+
     }
 }
