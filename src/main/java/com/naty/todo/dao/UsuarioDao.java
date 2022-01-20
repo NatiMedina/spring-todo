@@ -14,5 +14,5 @@ public interface UsuarioDao {
 
     Usuario modificarUsuario(Long id, Usuario usuario);
 
-
+    boolean verificarCredenciales(Usuario usuario);
 }
