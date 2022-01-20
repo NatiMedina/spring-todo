@@ -45,13 +45,23 @@ public class UsuarioDaoImp implements UsuarioDao {
             if (usuario.getApellido() != null) {
                 oldUsuario.setApellido(usuario.getApellido());
             }
-            if (usuario.getEmail() != null){
+            if (usuario.getEmail() != null) {
                 oldUsuario.setEmail(usuario.getEmail());
             }
-            if (usuario.getPassword() != null){
+            if (usuario.getPassword() != null) {
                 oldUsuario.setPassword(usuario.getPassword());
             }
         }
         return oldUsuario;
+    }
+
+    @Override
+    public boolean verificarCredenciales(Usuario usuario) {
+        String query = "FROM Usuario WHERE email = :email AND password = :password";
+        List<Usuario> lista = entityManager.createQuery(query)
+                .setParameter("email", usuario.getEmail())
+                .setParameter("password", usuario.getPassword())
+                .getResultList();
+        return !lista.isEmpty();
     }
 }
