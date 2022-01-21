@@ -47,8 +47,11 @@ public class TodoController {
     }
 
     @RequestMapping(value = "api/todo/{id}", method = RequestMethod.PATCH)
-    public Todo modificarTodo(@PathVariable Long id, @RequestBody Todo todo) {
-        return todoDao.modificarTodo(id, todo);
+    public Todo modificarTodo(@RequestHeader(value = "Authorization") String token, @PathVariable Long id, @RequestBody Todo todo) {
+        if (validarToken(token) && id != null) {
+            return todoDao.modificarTodo(id, todo);
+        }
+        return null;
     }
 
 }
